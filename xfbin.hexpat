@@ -1,13 +1,14 @@
 #pragma endian big
 
-struct NuccChunk {
+struct NuccChunk<T> {
     u32 size;
     u32 map_index;
     u16 version;
     u16 unk;
+    T data;
 };
 
-struct NuccIndex : NuccChunk {
+struct NuccIndex {
     u32 chunk_type_count;
     u32 chunk_type_size;
     u32 file_path_count;
@@ -27,7 +28,7 @@ struct Xfbin {
     char language_id[2];
     padding[2] [[comment("Something to do with encryption.")]];
     padding[2];
-    NuccIndex index [[inline]];
+    NuccChunk<NuccIndex> index;
 };
 
 Xfbin xfbin @ 0x00 [[inline]];
