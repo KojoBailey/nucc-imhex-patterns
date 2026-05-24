@@ -1,4 +1,4 @@
-#include "nucc_index.hexpat"
+import index;
 
 #pragma endian big
 

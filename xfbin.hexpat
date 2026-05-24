@@ -1,7 +1,7 @@
 import std.mem;
 import std.sys;
 
-#include "nucc_chunk.hexpat"
+import chunk;
 
 #pragma endian big
 
