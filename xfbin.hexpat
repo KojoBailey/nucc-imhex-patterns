@@ -17,6 +17,6 @@ std::assert(file_signature == "NUCC",
     "Mismatched file signature: Expected `NUCC`.");
 u32 version @ $;
 Flags flags @ $;
-NuccChunk<0> index @ $;
+NuccIndex index @ $;
 
-NuccChunk<1> chunks[while(!std::mem::eof())] @ $;
+NuccChunk<index> chunks[while(!std::mem::eof())] @ $;
