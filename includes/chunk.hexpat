@@ -16,9 +16,12 @@ struct NuccChunk<auto index> {
 	u16 version;
 	u16;
 
-	match (get_chunk_type(index, map_index)) {
+	str chunk_type = get_chunk_type(index, map_index) [[export]];
+	str chunk_name = get_chunk_name(index, map_index) [[export]];
+
+	match (chunk_type) {
 		("nuccChunkNull"): NuccNull data;
 		("nuccChunkPage"): NuccPage data;
-		("nuccChunkBinary"): NuccBinary<get_chunk_name(index, map_index)> data;
+		("nuccChunkBinary"): NuccBinary<chunk_name> data;
 	}
 };
