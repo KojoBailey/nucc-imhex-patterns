@@ -6,7 +6,7 @@ import chunk;
 #pragma endian big
 
 struct Flags {
-    u16;
+    u16 is_encrypted;
     char language_id[2];
     u16 [[comment("Something to do with encryption.")]];
     u16;
