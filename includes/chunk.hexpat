@@ -1,6 +1,7 @@
 import index;
 import binary;
 import texture;
+import model;
 
 import std.string;
 
@@ -39,6 +40,7 @@ struct NuccChunk<auto index> {
 		}
 		("nuccChunkBinary"): NuccBinary<chunk_name> data;
 		("nuccChunkTexture"): NuccTexture data;
+		("nuccChunkModel"): NuccModel<version> data;
 		(_): u8 data[size];
 	}
 } [[name(format_chunk(this))]];
