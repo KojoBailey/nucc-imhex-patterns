@@ -7,7 +7,9 @@ struct NuccBinary<auto chunk_name> {
 
 	match (chunk_name) {
 		("PlayerColorParam"): PlayerColorParam data;
-		(_): padding[size];
+		(_): {
+			u8 data[size];
+		}
 	}
 };
 
